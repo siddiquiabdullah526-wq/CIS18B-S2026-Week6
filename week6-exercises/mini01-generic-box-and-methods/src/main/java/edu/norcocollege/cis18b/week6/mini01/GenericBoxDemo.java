@@ -11,6 +11,14 @@ public class GenericBoxDemo {
         return values.get(0);
     }
 
+    // this is implementation of the extension challenge
+    public static <T> T last(List<T> values) {
+        if (values == null || values.isEmpty()) {
+            throw new IllegalArgumentException("values must contain at least one item");
+        }
+        return values.get(values.size() - 1);
+    }
+
     public static void main(String[] args) {
         Box<String> labelBox = new Box<>();
         labelBox.set("CIS-18B");
@@ -27,3 +35,4 @@ public class GenericBoxDemo {
         System.out.println("First score: " + firstScore);
     }
 }
+

@@ -12,3 +12,4 @@ public class Box<T> {
         return value;
     }
 }
+
