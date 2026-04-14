@@ -11,6 +11,8 @@ public class TypedRegistry {
         values.put(key, value);
     }
 
+    // this is the implementation of the extension challenge
+    // A Class<T> token-based lookup is useful for safe retrieval and casting from the registry at runtime
     public <T> T get(String key, Class<T> token) {
         Object value = values.get(key);
         return token.cast(value);
