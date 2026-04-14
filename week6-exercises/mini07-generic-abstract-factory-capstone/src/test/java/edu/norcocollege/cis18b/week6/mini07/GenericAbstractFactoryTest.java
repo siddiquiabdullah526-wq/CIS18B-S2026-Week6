@@ -28,4 +28,14 @@ class GenericAbstractFactoryTest {
         assertTrue(factory.createButton() instanceof CampusButton);
         assertTrue(factory.createDialog() instanceof CampusDialog);
     }
+
+    // Extension challenge test: verifies the typed builder creates a family-consistent UI screen
+    @Test
+    void buildScreenCreatesTypedCampusScreen() {
+        UIScreen<CampusButton, CampusDialog> screen = ScreenRenderer.buildScreen(new CampusUIFactory());
+
+        assertTrue(screen.getButton() instanceof CampusButton);
+        assertTrue(screen.getDialog() instanceof CampusDialog);
+        assertEquals("CampusButton + CampusDialog", screen.render());
+    }
 }
